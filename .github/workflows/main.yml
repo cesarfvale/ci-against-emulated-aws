@@ -2,6 +2,6 @@
   run: npm install -g @localstack/lstk
 
 - name: Start LocalStack
-  run lstk start
+  run: lstk start
   env:
     LOCALSTACK_AUTH_TOKEN: ${{ secrets.LOCALSTACK_AUTH_TOKEN }}
