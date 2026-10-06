@@ -1,7 +1,14 @@
-- name: Install lstk
-  run: npm install -g @localstack/lstk
+name: Install and Start LocalStack
 
-- name: Start LocalStack
-  run: lstk start
-  env:
-    LOCALSTACK_AUTH_TOKEN: ${{ secrets.LOCALSTACK_AUTH_TOKEN }}
+on: [push]
+jobs:
+  localstack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install lstk
+        run: npm install -g @localstack/lstk
+      
+      - name: Start LocalStack
+        run: lstk start
+        env:
+          LOCALSTACK_AUTH_TOKEN: ${{ secrets.LOCALSTACK_AUTH_TOKEN }}
